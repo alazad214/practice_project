@@ -41,6 +41,7 @@ dependencies:
   open_file: ^3.5.10
   easy_url_launcher: ^0.0.7
   qr_flutter: ^4.1.0
+  shared_preferences: ^2.5.2
 
 
 dev_dependencies:

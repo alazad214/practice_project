@@ -1,25 +1,48 @@
 import 'package:flutter/material.dart';
-import 'package:test_project/custom_theme/custom_theme.dart';
-
-import 'qr_code/qr_code_screen.dart';
+import 'package:test_project/custom_theme/app_theme.dart';
+import 'package:test_project/custom_theme/theme_change_screen.dart';
+import 'custom_theme/custom_theme.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
 
-  // This widget is the root of your application.
+class _MyAppState extends State<MyApp> {
+  bool _isDark = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadTheme();
+  }
+
+  void _loadTheme() async {
+    bool savedTheme = await ThemeManager.loadTheme();
+    setState(() {
+      _isDark = savedTheme;
+    });
+  }
+
+  void _toggleTheme() async {
+    setState(() {
+      _isDark = !_isDark;
+    });
+    await ThemeManager.saveTheme(_isDark);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.light,
-      debugShowCheckedModeBanner: false,
-      home: QRCodeWithLogo(),
+      themeMode: _isDark ? ThemeMode.dark : ThemeMode.light,
+      home: ThemeChangeScreen(toggleTheme: _toggleTheme, isDark: _isDark),
     );
   }
 }

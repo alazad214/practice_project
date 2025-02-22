@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_project/animations/animations.dart';
 import 'package:test_project/custom_theme/app_theme.dart';
 import 'package:test_project/custom_theme/theme_change_screen.dart';
 import 'custom_theme/custom_theme.dart';
@@ -38,11 +39,10 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      themeMode: _isDark ? ThemeMode.dark : ThemeMode.light,
-      home: ThemeChangeScreen(toggleTheme: _toggleTheme, isDark: _isDark),
-    );
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        themeMode: _isDark ? ThemeMode.dark : ThemeMode.light,
+        home: FirstScreen());
   }
 }

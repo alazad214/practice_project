@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:test_project/animations/animations.dart';
 import 'package:test_project/custom_theme/app_theme.dart';
-import 'package:test_project/custom_theme/theme_change_screen.dart';
+import 'package:test_project/pagination/pagination_screen.dart';
 import 'custom_theme/custom_theme.dart';
+import 'image_cropper/image_cropper_screen.dart';
+import 'pagination/better_pagination_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -43,6 +44,6 @@ class _MyAppState extends State<MyApp> {
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,
         themeMode: _isDark ? ThemeMode.dark : ThemeMode.light,
-        home: FirstScreen());
+        home: BetterPaginationScreen());
   }
 }

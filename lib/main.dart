@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:test_project/animations/another_animation.dart';
 import 'package:test_project/custom_theme/app_theme.dart';
-import 'package:test_project/pagination/pagination_screen.dart';
 import 'custom_theme/custom_theme.dart';
-import 'image_cropper/image_cropper_screen.dart';
-import 'pagination/better_pagination_screen.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
-  _MyAppState createState() => _MyAppState();
+  MyAppState createState() => MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class MyAppState extends State<MyApp> {
   bool _isDark = false;
 
   @override
@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  void _toggleTheme() async {
+  void toggleTheme() async {
     setState(() {
       _isDark = !_isDark;
     });
@@ -44,6 +44,6 @@ class _MyAppState extends State<MyApp> {
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,
         themeMode: _isDark ? ThemeMode.dark : ThemeMode.light,
-        home: BetterPaginationScreen());
+        home: AnotherAnimation());
   }
 }

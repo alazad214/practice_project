@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 
 class CustomDropdown extends StatelessWidget {
   final List items;
-  final value;
+  final dynamic value;
   final String hintText;
   final ValueChanged onChanged;
   final String Function(dynamic)? itemLabel;
   final InputDecoration? decoration;
-  final contentPadding;
-  final icon;
-  final isFilled;
-  final fillColor;
-  final borderRadius;
+  final EdgeInsetsGeometry? contentPadding;
+  final Widget? icon;
+  final bool? isFilled;
+  final Color? fillColor;
+  final double? borderRadius;
 
   const CustomDropdown({
     super.key,

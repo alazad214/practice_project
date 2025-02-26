@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:pdf/pdf.dart';
@@ -171,14 +172,12 @@ class PdfGeneratorScreen extends StatelessWidget {
       await file.writeAsBytes(await pdf.save());
 
       OpenFile.open(filePath);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('PDF generated successfully!')),
-      );
+   
     } catch (e) {
-      print('Error saving PDF: $e');
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to generate PDF')),
-      );
+      
+
+      log('Error saving PDF: $e');
+
     }
   }
 

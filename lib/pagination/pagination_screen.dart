@@ -12,7 +12,7 @@ class PaginatedListView extends StatefulWidget {
 }
 
 class PaginatedListViewState extends State<PaginatedListView> {
-  List<dynamic> _posts = [];
+  final List<dynamic> _posts = [];
   bool _isLoading = false;
   int _page = 1;
   final int _limit = 5;

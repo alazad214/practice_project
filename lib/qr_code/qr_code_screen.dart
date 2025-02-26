@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class QRCodeWithLogo extends StatelessWidget {
+  const QRCodeWithLogo({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

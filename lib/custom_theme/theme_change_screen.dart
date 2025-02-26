@@ -6,7 +6,7 @@ class ThemeChangeScreen extends StatelessWidget {
   final VoidCallback toggleTheme;
   final bool isDark;
 
-  const ThemeChangeScreen({required this.toggleTheme, required this.isDark});
+  const ThemeChangeScreen({super.key, required this.toggleTheme, required this.isDark});
 
   @override
   Widget build(BuildContext context) {

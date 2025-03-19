@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_project/custom_theme/app_theme.dart';
-import 'package:test_project/url_launcher/url_launcher_screen.dart';
+import 'package:test_project/custom_toast/test_toast_screen.dart';
+import 'package:toastification/toastification.dart';
 import 'custom_theme/custom_theme.dart';
 
 void main() {
@@ -39,11 +40,14 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ToastificationWrapper(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,
         themeMode: _isDark ? ThemeMode.dark : ThemeMode.light,
-        home: UrlLauncherScreen());
+        home: TestToastScreen(),
+      ),
+    );
   }
 }

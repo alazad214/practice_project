@@ -1,0 +1,2 @@
+C:/AL AZAD/test_project/android/app/.cxx/Debug/1y6s595c/x86/CMakeFiles/edit_cache.dir
+C:/AL AZAD/test_project/android/app/.cxx/Debug/1y6s595c/x86/CMakeFiles/rebuild_cache.dir

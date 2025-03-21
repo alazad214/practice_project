@@ -1,13 +1,15 @@
 import 'package:appinio_social_share/appinio_social_share.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
 import 'package:maps_launcher/maps_launcher.dart';
 
 class ShareScreen extends StatelessWidget {
-  // The text or link you want to share
+
   final String textToShare =
       "Check out this amazing link: https://www.example.com";
-  AppinioSocialShare appinioSocialShare = AppinioSocialShare();
+  final AppinioSocialShare appinioSocialShare = AppinioSocialShare();
+
+  ShareScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

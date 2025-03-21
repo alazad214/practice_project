@@ -10,17 +10,18 @@ class AppTheme {
         backgroundColor: Colors.green,
         foregroundColor: Colors.white,
         elevation: 2,
-        titleTextStyle: TextStyle(color: Colors.amber)),
+        toolbarTextStyle: TextStyle(fontSize: 20),
+        titleTextStyle: TextStyle(color: Colors.black)),
     textTheme: TextTheme(
-      bodyLarge: TextStyle(fontSize: 18, color: Colors.black),
-      bodyMedium: TextStyle(fontSize: 16, color: Colors.black87),
+      bodyLarge: TextStyle(fontSize: 22, color: Colors.black),
+      bodyMedium: TextStyle(fontSize: 22, color: Colors.black87),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-        textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+        textStyle: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
       ),
     ),
   );

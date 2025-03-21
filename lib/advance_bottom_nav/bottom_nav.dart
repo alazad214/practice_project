@@ -8,36 +8,35 @@ class BottomNav extends StatefulWidget {
   const BottomNav({super.key});
 
   @override
-  _BottomNavState createState() => _BottomNavState();
+  BottomNavState createState() => BottomNavState();
 }
 
-class _BottomNavState extends State<BottomNav> {
-  int _selectedIndex = 0;
+class BottomNavState extends State<BottomNav> {
+  int selectedIndex = 0;
 
-  void _onItemTapped(int index) {
+  void onItemTaped(int index) {
     setState(() {
-      _selectedIndex = index;
+      selectedIndex = index;
     });
   }
 
-
-  void _switchToCategoryTab() {
+  void switchToCategoryTab() {
     setState(() {
-      _selectedIndex = 1; 
+      selectedIndex = 1;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _selectedIndex == 0
-          ? HomeScreen(onSeeAllPressed: _switchToCategoryTab)
-          : _selectedIndex == 1
+      body: selectedIndex == 0
+          ? HomeScreen(onSeeAllPressed: switchToCategoryTab)
+          : selectedIndex == 1
               ? CategoryScreen()
               : ProfileScreen(),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
+        currentIndex: selectedIndex,
+        onTap: onItemTaped,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),

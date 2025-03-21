@@ -6,15 +6,19 @@ class CategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Expanded(
+      appBar: AppBar(
+        title: Text('Category Screen'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
         child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, 
+            crossAxisCount: 2,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
-            childAspectRatio: 1.5, 
+            childAspectRatio: 1.5,
           ),
-          itemCount: 6, 
+          itemCount: 6,
           itemBuilder: (context, index) {
             return Card(
               elevation: 5,
@@ -41,7 +45,6 @@ class CategoryScreen extends StatelessWidget {
           },
         ),
       ),
-     
     );
   }
 }

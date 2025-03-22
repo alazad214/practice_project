@@ -51,6 +51,7 @@ dependencies:
   appinio_social_share: ^0.3.2
   maps_launcher: ^3.0.0+1
   toastification: ^3.0.2
+  flutter_compass: ^0.8.1
 
 
 dev_dependencies:

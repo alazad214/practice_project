@@ -20,10 +20,13 @@ class AuthScreen extends StatelessWidget {
               const SizedBox(height: 20),
               AuthButton(
                 text: 'Login with Github',
-                submit: () {},
-                provider: AuthButtonProvider.github,
                 iconSide: IconSide.right,
                 disableIcon: false,
+                disableText: false,
+                borderWidth: 2,
+                iconSize: 34,
+                provider: AuthButtonProvider.github,
+                submit: () {},
               )
             ],
           ),

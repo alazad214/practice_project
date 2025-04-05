@@ -74,8 +74,8 @@ class AuthButton extends StatelessWidget {
         ? const SizedBox.shrink()
         : Image.asset(
             logoPath,
-            height: iconSize ?? 20.0,
-            width: iconSize ?? 20.0,
+            height: (iconSize == 34) ? iconSize : 20.0,
+            width: (iconSize == 34) ? iconSize : 20.0,
           );
 
     final spacing = (!disableIcon && !disableText)
@@ -84,14 +84,16 @@ class AuthButton extends StatelessWidget {
 
     final textWidget = disableText
         ? const SizedBox.shrink()
-        : Text(
-            text ?? '',
-            textAlign: TextAlign.center,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: textSize ?? 18.0,
-              fontWeight: FontWeight.bold,
+        : Flexible(
+            child: Text(
+              text ?? '',
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: textSize ?? 18.0,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           );
 

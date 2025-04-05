@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_project/location_campass/location_campass.dart' show CompassScreen;
+import 'package:test_project/auth_button/auth_screen.dart';
 import 'package:toastification/toastification.dart';
 import 'custom_theme/custom_theme.dart';
 
@@ -45,7 +45,7 @@ class MyAppState extends State<MyApp> {
         // theme: AppTheme.lightTheme,
         // darkTheme: AppTheme.darkTheme,
         // themeMode: _isDark ? ThemeMode.dark : ThemeMode.light,
-        home: CompassScreen(),
+        home: AuthScreen(),
       ),
     );
   }

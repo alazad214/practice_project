@@ -845,6 +845,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "11.4.0"
+  styled_button:
+    dependency: "direct main"
+    description:
+      name: styled_button
+      sha256: "44d17eaec5275858bac19774a4a0f44c3fb58eec744a82bba6f7c2fec39233a7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.2"
   term_glyph:
     dependency: transitive
     description:

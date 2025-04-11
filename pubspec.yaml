@@ -52,6 +52,8 @@ dependencies:
   maps_launcher: ^3.0.0+1
   toastification: ^3.0.2
   flutter_compass: ^0.8.1
+  styled_button: ^1.0.2
+  
 
 
 dev_dependencies:

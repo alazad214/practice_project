@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:test_project/auth_button/auth_button.dart';
 
@@ -10,24 +12,30 @@ class AuthScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Authentication Screen'),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(15),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Welcome to the Authentication Screen!'),
-              const SizedBox(height: 20),
               AuthButton(
                 text: 'Login with Github',
-                iconSide: IconSide.right,
-                disableIcon: false,
-                disableText: false,
-                borderWidth: 2,
-                iconSize: 34,
-                provider: AuthButtonProvider.github,
-                submit: () {},
-              )
+                provider: AuthButtonProvider.microsoft,
+                disableText: true,
+                iconSide: IconSide.left,
+                submit: () {
+                  log('login with Github clicked');
+                },
+              ),
+              AuthButton(
+                text: 'Login with Github',
+                provider: AuthButtonProvider.microsoft,
+             
+                iconSide: IconSide.left,
+                submit: () {
+                  log('login with Github clicked');
+                },
+              ),
             ],
           ),
         ),

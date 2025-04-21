@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_project/advanced_product_design/product_screen.dart';
+import 'package:test_project/audio/audio_screen.dart';
 import 'package:toastification/toastification.dart';
 import 'custom_theme/custom_theme.dart';
 
@@ -45,7 +45,7 @@ class MyAppState extends State<MyApp> {
         // theme: AppTheme.lightTheme,
         // darkTheme: AppTheme.darkTheme,
         // themeMode: _isDark ? ThemeMode.dark : ThemeMode.light,
-        home: ProductListWithAdsScreen(),
+        home: AudioPlayerScreen(),
       ),
     );
   }

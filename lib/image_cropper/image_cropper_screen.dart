@@ -263,6 +263,7 @@ class HomePageState extends State<ImageCropperScreen> {
       setState(() {
         _pickedFile = pickedFile;
       });
+      await _cropImage(); // Automatically open cropper after picking
     }
   }
 

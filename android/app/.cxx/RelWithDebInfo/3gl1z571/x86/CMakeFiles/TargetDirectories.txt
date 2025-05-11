@@ -1,0 +1,2 @@
+C:/AL AZAD/practice_project/android/app/.cxx/RelWithDebInfo/3gl1z571/x86/CMakeFiles/edit_cache.dir
+C:/AL AZAD/practice_project/android/app/.cxx/RelWithDebInfo/3gl1z571/x86/CMakeFiles/rebuild_cache.dir

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:test_project/html_to_text/html_text_convert_screen.dart';
+import 'package:test_project/mcq_screen/mcq_screen.dart';
+import 'package:test_project/mcq_screen/quiz_instuction_screen.dart';
 import 'package:toastification/toastification.dart';
 import 'custom_theme/custom_theme.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
@@ -43,8 +44,7 @@ class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return ToastificationWrapper(
-      child: MaterialApp(
-          debugShowCheckedModeBanner: false, home: HtmlTextConvertScreen()),
+      child: MaterialApp(debugShowCheckedModeBanner: false, home: QuizScreen()),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_project/mcq_screen/result_screen.dart';
 
 class QuizScreen extends StatefulWidget {
   const QuizScreen({super.key});
@@ -90,17 +91,13 @@ class _QuizScreenState extends State<QuizScreen> {
       }
     }
 
-    showDialog(
-      context: context,
-      builder: (_) => AlertDialog(
-        title: const Text("Quiz Result"),
-        content: Text("আপনার স্কোর: $score / ${quizData.length}"),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text("ঠিক আছে"),
-          ),
-        ],
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => ResultScreen(
+          quizData: quizData,
+          selectedAnswers: selectedAnswers,
+        ),
       ),
     );
   }

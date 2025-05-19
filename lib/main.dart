@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_project/mcq_screen/category_screen.dart';
 import 'package:test_project/mcq_screen/mcq_screen.dart';
 import 'package:test_project/mcq_screen/quiz_instuction_screen.dart';
 import 'package:toastification/toastification.dart';
@@ -44,7 +45,7 @@ class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return ToastificationWrapper(
-      child: MaterialApp(debugShowCheckedModeBanner: false, home: QuizScreen()),
+      child: MaterialApp(debugShowCheckedModeBanner: false, home: CategoryScreen()),
     );
   }
 }

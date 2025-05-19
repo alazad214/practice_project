@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:test_project/mcq_screen/result_screen.dart';
 
 class QuizScreen extends StatefulWidget {
-  const QuizScreen({super.key});
+  final String category;
+
+  const QuizScreen({super.key, required this.category});
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
@@ -11,36 +13,37 @@ class QuizScreen extends StatefulWidget {
 class _QuizScreenState extends State<QuizScreen> {
   int currentIndex = 0;
   List<int?> selectedAnswers = [];
+  late List<Map<String, dynamic>> quizData;
 
-  final List<Map<String, dynamic>> quizData = [
+  final List<Map<String, dynamic>> allQuizData = [
     {
+      "category": "General Knowledge",
       "question": "What is the largest continent in the world?",
       "options": ["Africa", "Asia", "Europe", "Australia"],
       "answerIndex": 1,
     },
     {
+      "category": "General Knowledge",
       "question": "How many bones are there in the adult human body?",
       "options": ["206", "306", "256", "226"],
       "answerIndex": 0,
     },
     {
+      "category": "j",
       "question": "What is the national flower of Bangladesh?",
       "options": ["Water Lily", "Rose", "Marigold", "Tuberose"],
       "answerIndex": 0,
     },
     {
+      "category": "General Knowledge",
       "question": "Which is the longest river in the world?",
       "options": ["Nile", "Amazon", "Ganges", "Mississippi"],
       "answerIndex": 0,
     },
     {
+      "category": "Computer",
       "question": "What is the main part of a computer?",
-      "options": [
-        "CPU",
-        "RAMRAMRAMRAMRAMRAMRAMRAMRAMRAMRAMRAMRAMRAMRAMRAMRAMRAMRAMRAMRAMRAMRAMRAMRAMRAMRAMRAMRAMRAM",
-        "Monitor",
-        "Mouse"
-      ],
+      "options": ["CPU", "RAM", "Monitor", "Mouse"],
       "answerIndex": 0,
     },
   ];
@@ -48,6 +51,10 @@ class _QuizScreenState extends State<QuizScreen> {
   @override
   void initState() {
     super.initState();
+
+    quizData =
+        allQuizData.where((q) => q['category'] == widget.category).toList();
+
     selectedAnswers = List.filled(quizData.length, null);
   }
 
@@ -104,6 +111,18 @@ class _QuizScreenState extends State<QuizScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Handle case where no questions are found for the selected category
+    if (quizData.isEmpty) {
+      return Scaffold(
+        body: Center(
+          child: Text(
+            'No questions available for "${widget.category}".',
+            style: TextStyle(fontSize: 18, color: Colors.black54),
+          ),
+        ),
+      );
+    }
+
     final currentQuiz = quizData[currentIndex];
 
     return Scaffold(
@@ -113,48 +132,51 @@ class _QuizScreenState extends State<QuizScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //Question Text-->>
+              // Question Progress Text
               RichText(
-                  text: TextSpan(children: [
-                TextSpan(
-                    text: 'Question: ',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500)),
-                TextSpan(
-                    text: '${currentIndex + 1} /',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500)),
-                TextSpan(
-                    text: ' ${quizData.length}',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500)),
-              ])),
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                        text: 'Question: ',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500)),
+                    TextSpan(
+                        text: '${currentIndex + 1} /',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500)),
+                    TextSpan(
+                        text: ' ${quizData.length}',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500)),
+                  ],
+                ),
+              ),
               const SizedBox(height: 16),
 
-              //Question Card-->>
+              // Question Card
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 8, vertical: 14),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(6),
-                    border: Border.all(
-                      color: Colors.black12,
-                    )),
-                child: Text('Question: ${currentQuiz["question"]}',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500)),
+                  borderRadius: BorderRadius.circular(6),
+                  border: Border.all(color: Colors.black12),
+                ),
+                child: Text(
+                  'Question: ${currentQuiz["question"]}',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500),
+                ),
               ),
               const SizedBox(height: 20),
 
-              //Option Card-->>
-
+              // Options
               ListView.builder(
                 shrinkWrap: true,
                 itemCount: currentQuiz["options"].length,
@@ -172,11 +194,10 @@ class _QuizScreenState extends State<QuizScreen> {
                       margin: const EdgeInsets.symmetric(vertical: 6),
                       padding: const EdgeInsets.all(14),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: isSelected ? Colors.teal : Colors.white,
-                          border: Border.all(
-                            color: Colors.black12,
-                          )),
+                        borderRadius: BorderRadius.circular(8),
+                        color: isSelected ? Colors.teal : Colors.white,
+                        border: Border.all(color: Colors.black12),
+                      ),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -224,7 +245,9 @@ class _QuizScreenState extends State<QuizScreen> {
       bottomSheet: Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(0)),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(0),
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -237,14 +260,16 @@ class _QuizScreenState extends State<QuizScreen> {
             currentIndex == quizData.length - 1
                 ? ElevatedButton(
                     onPressed: submitQuiz,
-                    style:
-                        ElevatedButton.styleFrom(backgroundColor: Colors.teal),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.teal,
+                    ),
                     child: const Text("Submit"),
                   )
                 : ElevatedButton(
                     onPressed: nextQuestion,
-                    style:
-                        ElevatedButton.styleFrom(backgroundColor: Colors.teal),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.teal,
+                    ),
                     child: const Text("Next"),
                   ),
           ],

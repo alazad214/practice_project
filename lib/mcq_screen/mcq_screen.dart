@@ -91,12 +91,12 @@ class _QuizScreenState extends State<QuizScreen> {
       return;
     }
 
-    int score = 0;
-    for (int i = 0; i < quizData.length; i++) {
-      if (selectedAnswers[i] == quizData[i]["answerIndex"]) {
-        score++;
-      }
-    }
+    // int score = 0;
+    // for (int i = 0; i < quizData.length; i++) {
+    //   if (selectedAnswers[i] == quizData[i]["answerIndex"]) {
+    //     score++;
+    //   }
+    // }
 
     Navigator.push(
       context,

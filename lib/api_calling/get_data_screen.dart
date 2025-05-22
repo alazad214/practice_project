@@ -7,10 +7,10 @@ class PostListScreen extends StatefulWidget {
   const PostListScreen({super.key});
 
   @override
-  _PostListScreenState createState() => _PostListScreenState();
+  PostListScreenState createState() => PostListScreenState();
 }
 
-class _PostListScreenState extends State<PostListScreen> {
+class PostListScreenState extends State<PostListScreen> {
   late Future<List<Map<String, dynamic>>> posts;
 
   @override

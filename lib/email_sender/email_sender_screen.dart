@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server.dart';
@@ -28,12 +30,12 @@ class _EmailSenderScreenState extends State<EmailSenderScreen> {
 
     try {
       final sendReport = await send(message, smtpServer);
-      print('Message sent: ' + sendReport.toString());
+      log('Message sent: $sendReport');
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Email Sent Successfully!')),
       );
     } catch (e) {
-      print('Message not sent: $e');
+      log('Message not sent: $e');
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Failed to send email.')),
       );
